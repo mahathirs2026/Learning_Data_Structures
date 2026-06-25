@@ -1,0 +1,4 @@
+# Ignore all compiled executables
+*
+!*.cpp
+!.gitignore
