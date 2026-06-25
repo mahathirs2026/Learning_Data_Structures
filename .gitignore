@@ -1,4 +1,5 @@
 # Ignore all compiled executables
 *
 !*.cpp
+!*.py
 !.gitignore
