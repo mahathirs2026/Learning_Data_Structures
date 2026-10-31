@@ -1,0 +1,83 @@
+# include <stdio.h>
+# include <stdlib.h>
+int fsum(int A[], int N){
+    int summa = 0;
+    for (int i=0; i < N; i++){
+        summa += A[i];
+    }
+    return summa;
+}
+
+int countf(int A[], int N, int x){
+   int counta = 0;
+   for (int i = 0; i < N; i++){
+       if (A[i] == x){
+           counta+=1;
+       }
+           
+   }
+   return counta;
+}
+
+int compare(const void*a, const void*b){
+    return(*(int*)a - *(int*)b);
+}
+
+int main(void){
+    int A[] = {3, 8, 2, 3, 3, 2};
+    int N = 6 ;
+    for (int i = 1; i <=10; i++) {
+        printf("%d\n", i);
+        }
+    int sum = 0;
+    for (int q = 0; q < N;  q++ ) {
+        sum += A[q];
+        }
+    // A backwards
+    
+    for (int w = N-1; w >= 0; w--){
+        printf("%d\n", A[w]);
+    }
+    
+    int maxnum = 0;
+    
+    for (int j = 0; j < N; j++){
+        if (A[j] >= maxnum){
+            maxnum = A[j];
+            }
+        }
+    qsort(A,N,sizeof(A[0]),compare);
+    
+    for (int k = 0; k < N; k++){
+        printf("%d\n", A[k]);
+        }
+        
+    
+    printf("\nSum = %d\ ", sum);
+    printf("\nMaximum number inside A is %d\n", maxnum);
+    printf("\nsorted last or biggest is %d\n", A[N-1]); // because indexing starts at 0 the biggest value is at N-1
+    printf("\nthis is running") ;
+    
+    // longer questions
+    // count how many values are even
+    int B[] = {2,4,6,8,10,12}; 
+    int *even_array = calloc(N,sizeof(int));
+    int counter = 0;
+    for (int l = 0; l < N; l++){
+        if (B[l]%2 == 0){
+            even_array[counter] = B[l];
+            counter += 1;
+            }
+        }
+    
+    printf( "\nnumber of even: %d\n", counter);
+    int sumofarray = fsum(A, N);
+    printf ("\nSum of teh array is: %d\n", sumofarray);
+    
+    int x = 3;
+    int freq = countf(A,N,x);
+    printf("3s appearence was spotted %d\n", freq);
+    
+    return 0 ;
+    free(even_array);
+}
